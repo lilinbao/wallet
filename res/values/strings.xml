@@ -7,5 +7,7 @@
     <string name="title_activity_fu_dai_main">FuDaiMainActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-	<string name="fudaiWalletLogo">Fudai Wallet Logo</string>
+    <string name="fudaiWalletLogo">Fudai Wallet Logo</string>
+    <string name="title_activity_main">MainActivity</string>
+	<string name="loadingDesc"> Loading</string>
 </resources>
