@@ -96,6 +96,7 @@ public class MainActivity extends Activity {
 			public void onReceivedError(WebView view, int errorCode,
 					String description, String failingUrl) {
 				String errorMsg = null;
+				ImageView errorView = (ImageView) findViewById(R.id.errorView);
 				super.onReceivedError(view, errorCode, description, failingUrl);
 				switch(errorCode){
 					case 401: //Unauthorized
@@ -134,6 +135,8 @@ public class MainActivity extends Activity {
 						onScreenDebugMessage(errorMsg + "(" + description + ")");
 						break;
 				}
+				errorView.setVisibility(View.VISIBLE);
+				webView.setVisibility(View.GONE);
 			}
 			/*
 			 * (non-Javadoc)
@@ -168,6 +171,7 @@ public class MainActivity extends Activity {
 					Log.d(TAG, "Page has been loaded!");
 				}
 				view.setVisibility(View.VISIBLE);
+				onScreenDebugMessage("Page Load Finished Event Trigger");
 				resetPageStateWhenPageFinished();
 			}
 			
@@ -213,10 +217,8 @@ public class MainActivity extends Activity {
 	 * @since  1.0.0
 	*/
 	protected void resetPageStateWhenPageFinished() {
-		AlphaAnimation alphaOff = new AlphaAnimation(1.0f, 0.5f);
-		AlphaAnimation alphaOn = new AlphaAnimation(0.5f, 1.0f);
-		alphaOff.setFillAfter(Boolean.TRUE);
-		alphaOn.setFillAfter(Boolean.TRUE);
+		onScreenDebugMessage("start handling page finished event");
+		
 		ImageView walletLogo = (ImageView) findViewById(R.id.imgViewWallet);
 		navigationController.setVisibility(View.VISIBLE);
 		loadingIndicator.destroyDrawingCache();
@@ -224,20 +226,24 @@ public class MainActivity extends Activity {
 		walletLogo.destroyDrawingCache();
 		walletLogo.setVisibility(View.GONE);
 		if(webView.canGoBack()){
+			onScreenDebugMessage("Web View Can Go Back");
 			btnNavLeft.setEnabled(Boolean.TRUE);
+			btnNavLeft.setAlpha(1.0f);
 		}else{
+			btnNavLeft.setAlpha(0.5f);
 			btnNavLeft.setEnabled(Boolean.FALSE);
 		}
 		if(webView.canGoForward()){
+			onScreenDebugMessage("Web View Can Go Forward");
+			btnNavRight.setAlpha(1.0f);
 			btnNavRight.setEnabled(Boolean.TRUE);
 		}else{
+			btnNavRight.setAlpha(0.5f);
 			btnNavRight.setEnabled(Boolean.FALSE);
 		}
 		if(BuildConfig.DEBUG){
 			Log.d(TAG, "page reset completed");
 		}
-		btnNavLeft.setAnimation(btnNavLeft.isEnabled() ? alphaOn : alphaOff);
-		btnNavRight.setAnimation(btnNavRight.isEnabled() ? alphaOn : alphaOff );
 	}
 
 	/**
