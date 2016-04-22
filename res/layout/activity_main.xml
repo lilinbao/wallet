@@ -1,0 +1,83 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutAnimate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top|center_horizontal"
+    android:background="#FF515A" >
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF515A"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imgViewWallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/wallet" 
+        android:contentDescription="@string/walletDesc" />
+
+    <ImageView
+        android:id="@+id/imgViewLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="0dp"
+        android:contentDescription="@string/logoDesc" />
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="metaButtonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/black_overlay"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:ignore="UselessParent" >
+
+        <ImageButton
+            android:id="@+id/btn_nav_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:contentDescription="@string/btn_nav_left"
+            android:alpha="0.5"
+            android:src="@drawable/left" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:contentDescription="@string/btn_nav_right"
+            android:alpha="0.5"
+            android:src="@drawable/right" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:contentDescription="@string/btn_nav_home"
+            android:src="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/btn_nav_refresh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:contentDescription="@string/btn_nav_refresh"
+            android:src="@drawable/reload" />
+    </LinearLayout>
+
+</FrameLayout>

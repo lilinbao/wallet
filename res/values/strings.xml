@@ -2,12 +2,11 @@
 <resources>
 
     <string name="app_name">fudai</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_fu_dai_main">FuDaiMainActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="fudaiWalletLogo">Fudai Wallet Logo</string>
-    <string name="title_activity_main">MainActivity</string>
-	<string name="loadingDesc"> Loading</string>
+    <string name="title_activity_splash">fudai</string>
+	<string name="logoDesc">logo</string>
+	<string name="walletDesc">wallet</string>
+	<string name="btn_nav_left">@null</string>
+	<string name="btn_nav_home">@null</string>
+	<string name="btn_nav_right">@null</string>
+	<string name="btn_nav_refresh">@null</string>
 </resources>
